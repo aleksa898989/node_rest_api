@@ -41,4 +41,15 @@ const deleteItem = async (req, res) => {
   }
 };
 
-module.exports = { getAllItems, createItem, getSingleItem, deleteItem };
+const updateItem = async (req, res) => {
+  const currentItemId = req.params.id;
+  try {
+    const item = await Item.findByIdAndUpdate({ _id: currentItemId }, req.body, { new: true, runValidators: true });
+    if (!item) return res.status(404).json(`no item with id: ${currentItemId}`);
+    res.status(200).json({ item });
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+module.exports = { getAllItems, createItem, getSingleItem, deleteItem, updateItem };
