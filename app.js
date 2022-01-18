@@ -1,6 +1,6 @@
 const express = require(`express`);
-const databaseConnection = require("./db/connection");
 const app = express();
+const databaseConnection = require("./db/connection");
 const pageNotFound = require("./middleware/pageNotFound");
 const router = require("./routes/items");
 require("dotenv").config();
