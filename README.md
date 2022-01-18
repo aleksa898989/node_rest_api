@@ -1,1 +1,1 @@
-Node/Express/MongoDB API
+Node API (Express and MongoDB)
